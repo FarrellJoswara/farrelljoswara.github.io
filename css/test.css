@@ -14,6 +14,13 @@ body {
   }
 .navigation{
   text-align: left;
-  color: green;
+  color: blue;
   background-color: orange;
   }
+.websitelogs{
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0; 
+  background-color: orange;
+}
