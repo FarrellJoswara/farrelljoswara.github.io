@@ -3,7 +3,7 @@ body {
 
   }
   
-  h1 {
+  h1 {text-align: center;
     color: white;
     text-align: center;
   }
@@ -14,4 +14,5 @@ body {
   }
 div.navigation{
   text-align: left;
+  color: blue;
   }
