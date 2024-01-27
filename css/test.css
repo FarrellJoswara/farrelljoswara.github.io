@@ -1,10 +1,10 @@
 body {
-    background-color: lightblue;
+    background-color: rgb(253, 254, 254);
 
   }
   
   h1 {text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
   }
   
@@ -14,19 +14,17 @@ body {
   }
 .navigation{
   text-align: left;
-  color: blue;
-  background-color: orange;
+  color: rgb(114, 114, 114);
+  background-color: rgb(187, 187, 187);
   }
 .websitelogs{
   width: 50%;
   padding: 10px;
-  border: 1px solid red;
+  border: 1px solid rgb(146, 146, 146);
   margin: 0; 
-  background-color: yellow;
+  background-color: rgb(146, 146, 146);
   }
   img {
     max-width: 100%;
     max-height: 100%;
-    height:300px;
-    width: 300px;
   }
