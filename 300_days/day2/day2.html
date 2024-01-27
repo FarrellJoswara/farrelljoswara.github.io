@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+<title>Page 1</title>
+
+<h1>DAY 2 (1/27/2024)</h1>
+<h2>Dice Rolling Simulator</h2>
+<p>Press the button to roll the dice!</p>
+
+<img id="dice" src="dice6.png" alt="6"> 
+<p>Number of Dice to Roll:</p>
+<p id="#dice">1</p>
+
+<p id="dice_roll"></p>
+<div class="slidecontainer">
+    <input type="range" min="1" max="6" value="1" class="slider" id="myRange" oninput="updateSliderVal()">
+</div>
+
+<button onclick="rolling()">Roll the Dice!</button>
+
+
+
+
+<script>
+    function sleep(time) { 
+    return new Promise((resolve) => setTimeout(resolve, time)); 
+    } 
+
+    async function rolling(){
+        let value = 0
+        const roll_time = 0.1;
+        const total_roll_time = 4
+        let dice_changes = total_roll_time/roll_time;
+        let time_elapsed = 0;
+        while (time_elapsed < total_roll_time){
+            let side = getRndInteger(1,7);
+            let file = "dice" + side.toString()+".png";
+            await sleep(roll_time * 1000)
+            document.getElementById('dice').src=file;
+            time_elapsed += roll_time;
+            value = side;
+        }
+        console.log(value); 
+    }   
+
+    function getRndInteger(min, max) {
+        return  Math.floor(Math.random() * (max - min)) + min;
+    }
+    
+
+    
+
+    function updateSliderVal() {
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("#dice");
+        output.innerHTML = slider.value;
+}
+    
+</script>
+
+</body>
+</html>
