@@ -13,26 +13,63 @@
 <h2>Dice Rolling Simulator</h2>
 <p>Press the button to roll the dice!</p>
 
-<img id="dice" src="dice6.png" alt="6"> 
-<p>Number of Dice to Roll:</p>
-<p id="#dice">1</p>
+<div id="dice holder" style="width:100px"></div>
+
+<img id="dice0" src="dice6.png" alt="6" style="width:100px"> 
+<p>Number of Dice to Roll: <p id="#dice">1</p> </p>
+
 
 <p id="dice_roll"></p>
 <div class="slidecontainer">
     <input type="range" min="1" max="6" value="1" class="slider" id="myRange" oninput="updateSliderVal()">
 </div>
 
-<button onclick="rolling()">Roll the Dice!</button>
+<button onclick="rolling('dice')">Roll the Dice!</button>
 
 
 
 
 <script>
+    let total_dice = 1;
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("#dice");
+    function updateDice(desiredDice){
+        console.log("upate dice ran!");
+        if (slider.value < total_dice){
+            console.log("first loop ran")
+            for (i = 0; i < total_dice-slider.value; i++) {
+                photoNum = (total_dice-i);
+                console.log("png"+(total_dice-i))
+                document.getElementById("png"+(total_dice-i)).remove();
+                
+            }
+            total_dice -= total_dice-slider.value;
+        }
+        else if (slider.value > total_dice){
+            console.log("second loop ran")
+            for (i = 0; i < slider.value-total_dice; i++) {
+
+                let img = new Image();
+                    img.src =
+                        'dice6.png';
+                    img.style = 
+                        'width:100px';
+                    img.id=
+                        "png"+(total_dice+1+i);
+                    console.log("created " + "png"+(total_dice+i))
+                    document.getElementById('dice holder').appendChild(img);
+                    total_dice += 1 
+    }}}
     function sleep(time) { 
     return new Promise((resolve) => setTimeout(resolve, time)); 
     } 
 
-    async function rolling(){
+    function roll_all(num_of_dice){
+        for (i = 0; i < num_of_dice; i++) {
+
+        }
+    }
+    async function rolling(file){
         let value = 0
         const roll_time = 0.1;
         const total_roll_time = 4
@@ -40,9 +77,9 @@
         let time_elapsed = 0;
         while (time_elapsed < total_roll_time){
             let side = getRndInteger(1,7);
-            let file = "dice" + side.toString()+".png";
+            let dicefile = "dice" + side.toString()+".png";
             await sleep(roll_time * 1000)
-            document.getElementById('dice').src=file;
+            document.getElementById(file.toString()).src=dicefile;
             time_elapsed += roll_time;
             value = side;
         }
@@ -53,13 +90,9 @@
         return  Math.floor(Math.random() * (max - min)) + min;
     }
     
-
-    
-
     function updateSliderVal() {
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("#dice");
         output.innerHTML = slider.value;
+        updateDice(slider.value);
 }
     
 </script>
