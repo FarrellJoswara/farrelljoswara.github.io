@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+
+                  <style>
+                    #calculator_holder{
+                        display: grid;
+                        column-gap: 50px;
+                        grid-template-columns: auto auto auto;
+                    }
+                    .column {
+                          text-align: left;
+                          }
+                    .row {
+                          display: inline-block;
+                          vertical-align: left;
+                          }
+
+              </style>
+            </head>
+            
+<body>
+
+
+<title>DAY # (#/##/24)</title>
+<h1>DAY # (#/##/24)</h1>
+<h2>Calculator</h2>
+
+
+<div id="display">
+    <br>
+</div>
+<div id="calculator_holder">
+    <div id="row1"class="row">
+        <button id="operation" onclick="buttonclick(this)">/</button>
+        <button id="operation" onclick="buttonclick(this)">*</button>
+        <button id="operation" onclick="buttonclick(this)">-</button>
+        <button id="operation" onclick="buttonclick(this)">+</button>
+    </div>
+    <div id="column1"class=column>
+        
+        <div id="row2"class="row">
+            <button id="number" onclick="buttonclick(this)">7</button>
+            <button id="number" onclick="buttonclick(this)">8</button>
+            <button id="number" onclick="buttonclick(this)">9</button>
+        </div>
+        <div id="row3"class="row">
+            <button id="number" onclick="buttonclick(this)">4</button>
+            <button id="number" onclick="buttonclick(this)">5</button>
+            <button id="number" onclick="buttonclick(this)">6</button>
+        </div>
+        <div id="row4"class="row">
+            <button id="number" onclick="buttonclick(this)">1</button>
+            <button id="number" onclick="buttonclick(this)">2</button>
+            <button id="number" onclick="buttonclick(this)">3</button>
+        </div>
+        <div id="row5"class="row">
+            <button id="number" onclick="buttonclick(this)">0</button>
+            <button id="decimal" onclick="buttonclick(this)">.</button>
+        </div>
+    </div>
+    <div id="column2"class=column>
+        <button id="equals" onclick="buttonclick(this)">=</button>
+    </div>
+</div>
+
+
+<h3>Progression/Thoughts</h3>
+<p>insert progress here</p>
+<a href="day5.html" download>Code!</a>
+
+
+
+<script>
+    function buttonclick(element){
+        document.getElementById('display').innerHTML += element.innerHTML
+    }
+
+
+</script>
+
+</body>
+</html>
