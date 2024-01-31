@@ -5,14 +5,7 @@
                   <link rel="stylesheet" href="/css/test.css">
 
                   <style>
-                    #calculator_holder{
-                        display: grid;
-                        column-gap: 50px;
-                        grid-template-columns: auto auto auto;
-                    }
-                    .column {
-                          text-align: left;
-                          }
+                    
                     .row {
                           display: inline-block;
                           vertical-align: left;
@@ -24,14 +17,12 @@
 <body>
 
 
-<title>DAY # (#/##/24)</title>
-<h1>DAY # (#/##/24)</h1>
-<h2>Calculator</h2>
+<title>DAY 5 (1/31/24)</title>
+<h1>DAY 5 (1/31/24)</h1>
+<h2>Simple Calculator</h2>
 
 
-<div id="display">
-    <br>
-</div>
+<div id="display"></div>
 <div id="calculator_holder">
     <div id="row1"class="row">
         <button id="operation" onclick="buttonclick(this)">/</button>
@@ -39,23 +30,24 @@
         <button id="operation" onclick="buttonclick(this)">-</button>
         <button id="operation" onclick="buttonclick(this)">+</button>
     </div>
+
     <div id="column1"class=column>
         
         <div id="row2"class="row">
             <button id="number" onclick="buttonclick(this)">7</button>
             <button id="number" onclick="buttonclick(this)">8</button>
             <button id="number" onclick="buttonclick(this)">9</button>
-        </div>
+        </div><br>
         <div id="row3"class="row">
             <button id="number" onclick="buttonclick(this)">4</button>
             <button id="number" onclick="buttonclick(this)">5</button>
             <button id="number" onclick="buttonclick(this)">6</button>
-        </div>
+        </div><br>
         <div id="row4"class="row">
             <button id="number" onclick="buttonclick(this)">1</button>
             <button id="number" onclick="buttonclick(this)">2</button>
             <button id="number" onclick="buttonclick(this)">3</button>
-        </div>
+        </div><br>
         <div id="row5"class="row">
             <button id="number" onclick="buttonclick(this)">0</button>
             <button id="decimal" onclick="buttonclick(this)">.</button>
@@ -63,20 +55,56 @@
     </div>
     <div id="column2"class=column>
         <button id="equals" onclick="buttonclick(this)">=</button>
+        <button id="clear" onclick="buttonclick(this)">ce</button>
     </div>
 </div>
 
 
 <h3>Progression/Thoughts</h3>
-<p>insert progress here</p>
+<p>It is 1:20AM as of now, im currently finishing it up. I was in class coding today and then I realized I didn't do one of my assignments for <br>
+Chemistry and so I got a 0 (i fixed it though). Anyways, I still have no idea how to use CSS, but from the previous days its honestly not that hard <br>
+to code in Javascript, its very nice and rewarding. The calculator is basicially just my numpad, since I don't know how to do sin and cosine in code yet <br>
+I tried making the buttons into a grid but it didn't work, I will have to come back some day and fix this up. Also, my webpage is super scuffed, and I was <br>
+thinking of ways to create like a template of some sort and I think I can just dynamicially load it using javascript on each page, idk if its the most <br>
+efficient but I think I may try it.
+
+Anyways once again code is linked below!
+
+
+
+
+</p>
 <a href="day5.html" download>Code!</a>
 
 
 
 <script>
+
+    let answer = ""
     function buttonclick(element){
-        document.getElementById('display').innerHTML += element.innerHTML
+
+        if(element.innerHTML =='='){
+            try{
+                document.getElementById('display').innerHTML = (eval(display.innerHTML))
+                answer = eval(display.innerHTML)
+            }
+            catch{
+                document.getElementById('display').innerHTML = 'error'
+                answer = 'potato'
+            }
+            
+        } 
+        else if (element.innerHTML != 'ce'){
+            if (answer!=""){
+                document.getElementById('display').innerHTML = ""
+                answer=""
+            }
+            document.getElementById('display').innerHTML += element.innerHTML}
+        else if (element.innerHTML == 'ce'){
+            document.getElementById('display').innerHTML = ""
+        }
     }
+
 
 
 </script>
