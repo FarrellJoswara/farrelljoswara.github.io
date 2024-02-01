@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title>DAY 6 (1/31/24)</title>
+<h1>DAY 6 (1/31/24)</h1>
+<h2>BMI Caclculator</h2>
+
+
+Enter Age:<input id="age"><br>
+Gender: M<input type="radio" name="csex" id="csex1" value="m" checked="">
+F<input type="radio" name="csex" id="csex2" value="f"><br>
+Height: Feet<input id="height_feet"> Inches:<input id="height_inches"><br>
+Weight(lbs): <input id="weight"><br>
+<input type="button" id="calculate" onclick='button()' value="Calculate">
+
+
+
+<h1>Result</h1>
+<p id="result">BMI = </p>
+<h3>Progression/Thoughts</h3>
+<p>Lowkey a lazy day. Made this at 1:22 AM again because i stayed up late talking to friends.<br>
+Im getting used to Javascript slighty, I had to google those radio buttons for Male female though<br>
+The calculator is kinda lame since its rushed, but overall I was just practicing my getElementById skills lol<br>
+Also I found the Number() funciton and it saved me a headache when trying to print the BMI because<br>
+For some reason instead of adding the numbers it added it as a string, so I had to use number() 
+</p>
+<a href="day6.html" download>Code!</a>
+
+
+
+
+<script>
+    function button(){
+        let age = document.getElementById('age').value
+        let feet_inches = Number(document.getElementById('height_feet').value)
+        let inches = Number(document.getElementById('height_inches').value)
+        let height = feet_inches*12+inches
+        let weight = document.getElementById('weight').value
+        if (document.getElementById('csex1').checked == ""){
+            console.log("female")
+        }else{
+            console.log("male")
+        }
+        console.log(height)
+        let BMI = (703*weight)/(height*height)
+        console.log(703*weight)
+        document.getElementById('result').innerHTML = "BMI = " +BMI.toFixed(1)
+
+        
+
+            
+        
+    }
+</script>
+</body>
+</html>
