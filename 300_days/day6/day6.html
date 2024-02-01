@@ -51,7 +51,14 @@ For some reason instead of adding the numbers it added it as a string, so I had 
         console.log(height)
         let BMI = (703*weight)/(height*height)
         console.log(703*weight)
-        document.getElementById('result').innerHTML = "BMI = " +BMI.toFixed(1)
+        if (BMI > 30){
+            document.getElementById('result').innerHTML = "Dang your obese"
+        }else if (BMI < 10){
+            document.getElementById('result').innerHTML = "please eat more"
+        }else{
+            document.getElementById('result').innerHTML = "BMI = " +BMI.toFixed(1)
+        }
+        
 
         
 
