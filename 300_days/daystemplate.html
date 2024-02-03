@@ -8,8 +8,8 @@
 <body>
 
 
-<title id="DAY">DAY # (#/##/24)</title>
-<h1 id="DAY">DAY # (#/##/24)</h1>
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
 <h2>Project</h2>
 <h3>Progression/Thoughts</h3>
 <p>insert progress here</p>
@@ -31,6 +31,8 @@
       current_date.setDate(current_date.getDate()+Number(day)-1)
       console.log(current_date)
       document.getElementById("download_code").href = "day"+day+".html"
-      document.getElementById("DAY").innerHTML = current_date
+      let string_date = "Day " + day + " (" + current_date.getMonth()+1 + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
 </script>
 </html>

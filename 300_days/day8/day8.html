@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+                  <style>
+                        .items {
+                              text-align: center;
+                              }
+                        .child {
+                              display: inline-block;
+                              vertical-align: left;
+                              }
+
+                  </style>
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Alarm Clock</h2>
+<p id="current_time"></p>
+Enter date formatted as month/day/year (##/##/20##) <input id="Date"> <br>
+Enter time formatted as ##:## AM/PM <input id="Time"><br>
+<input type="button" id="submit" onclick='buttonpress()' value="Create Alarm"><br>
+<input type="button" id="submit" onclick='audio.play()' value="fart Alarm"><br>
+<div class="items" id="alarms"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Progression/Thoughts</h3>
+<p>Wow this day is super messy <br>
+I found out that you can format dates super easily, like theres a function for it. Now all this work I did is silly<br>
+Anyways, I got a super basic alarm system going, I got lazy and wanted to show that the alarm went off so i just used a document write<br>
+I find it interesting that to compare times you have to convert them to miliseconds since jan 1970, i wonder why its that date<br>
+anyways, overall it was a cool project, i could definitely improve it, but atleast it somewhat works lol</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+      
+      let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      
+      day = file_location[1]
+
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+
+
+
+
+
+
+
+let ongoing_timers = []
+      function buttonpress(){
+      
+      let when = document.getElementById("Date").value; 
+      let specific_hour = document.getElementById("Time").value; 
+      let paragraph = document.createElement("p");
+      let holder = document.createElement("div");
+      let remove = document.createElement("input");
+      remove.type = "button";
+      remove.value = "x"
+      remove.onclick = function(){
+            holder.remove();
+      }
+
+      paragraph.classList.add("child")
+      remove.classList.add("child")
+      document.getElementById('alarms').appendChild(holder)
+      holder.appendChild(paragraph);
+      holder.appendChild(remove);
+      paragraph.innerHTML = specific_hour + " " + when
+
+
+      when = when.split("/")
+      let year = Number(when[2]) 
+      let month = Number(when[0])-1
+      let day_this = Number(when[1])
+      let hours = specific_hour.split(":")
+      let minutes = Number(hours[1].split(" ")[0])
+      let night = Number(hours[1].split(" ")[1])
+      hours = Number(specific_hour.split(":")[0])
+      if (night == 'PM'){
+            hours += 12 
+      }else if (night == 'AM'){
+            hours -=12
+      }
+
+      ongoing_timers.push(new Date(year,month,day_this,hours,minutes))
+}
+let audio = new Audio('alarm_sound.mp3');
+setInterval(function(){
+      let now = new Date();
+      document.getElementById("current_time").innerHTML = (now.toLocaleString('en-US', { timeZoneName: 'short' }));
+      
+
+      
+      for (let i = 0; i < ongoing_timers.length; i++) {
+            if (now.getTime() > ongoing_timers[i].getTime()){
+                  audio.play();
+                  document.write("ALARM WENT OFFF!!!!!")
+                  console.log("Equal!")
+            }
+      }
+
+
+
+
+
+},1)
+
+
+
+
+
+</script>
+</html>

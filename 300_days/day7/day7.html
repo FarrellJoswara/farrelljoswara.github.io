@@ -10,12 +10,22 @@
 
 <title id="day_title">DAY # (#/##/24)</title>
 <h1 id="day_heading">DAY # (#/##/24)</h1>
-<h2>Project</h2>
+<h2><s>Currency Converter</s> Day Templates</h2>
 <h3>Progression/Thoughts</h3>
-<p>insert progress here</p>
+<p>I started working on the day template this day instead of the currency converter. <br>
+The plan was to finish the template and then work on the converter but what actually ended up happening was that <br>
+I ended up doing my circuits homework from 2pm - 6am and so i couldn't work on the converter. Will have to make it another day!<br>
+The actually code itself though is fine. Each time i create a file it takes the day number from that and automaticially names the file and puts the <br>
+Date on the page and the download link and stuff. Its very nice. </p>
+
 <a href="day#.html" id="download_code" download>Code!</a>
 
 </body>
+
+
+
+
+
 <script>
       let file_location = location.pathname.split("/")
       file_location = file_location[file_location.length-1].split(".")
@@ -23,7 +33,6 @@
       file_location = file_location[0].split("y")
       
       console.log(file_location)
-      
       day = file_location[1]
       console.log(day)
       day = Number(day)  
@@ -31,7 +40,7 @@
       current_date.setDate(current_date.getDate()+Number(day)-1)
       console.log(current_date)
       document.getElementById("download_code").href = "day"+day+".html"
-      let string_date = "(" + String(current_date.getMonth) + "/" + String(current_date.getDate) + "/" + String(current_date.getFullYear()) +")"
+      let string_date = "Day " + day + " (" + current_date.getMonth() + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
       document.getElementById("day_title").innerHTML=  string_date
       document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
 </script>
