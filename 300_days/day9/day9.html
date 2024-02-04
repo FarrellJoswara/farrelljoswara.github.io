@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+                  <style>
+                        .items {
+                              text-align: center;
+                              }
+                        .child {
+                              display: inline-block;
+                              vertical-align: left;
+                              }
+
+                  </style>
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Countdown Timer</h2>
+<p id="current_time"></p>
+Enter Time in Seconds <input id="Date"> <br>
+
+<input type="button" id="submit" onclick='buttonpress()' value="Create Timer"><br>
+<p id="holder"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Progression/Thoughts</h3>
+<p>man this day's project sucks <br>
+wanted to create lots of timers and stuff but I ended up playing minecraft and doing it all last minute (because I played mc all day)<br>
+I also didn't use the date function so its not accurate timing. Not my proudest day. I am using setInterval which is cool<br>
+I don't know how I would create multiple alarms and have them each have their own timer countdowns though.</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+      
+      let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      
+      day = file_location[1]
+
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+
+
+
+
+
+
+
+let ongoing_timers = []
+      function buttonpress(){
+      let ms = Number(document.getElementById("Date").value)*100
+
+      ongoing_timers.push(ms+time_ms);
+      console.log(ms+time_ms)
+      console.log(ongoing_timers)
+
+
+      }
+let audio = new Audio('alarm_sound.mp3');
+let time_ms = 0
+
+setInterval(function(){
+      time_ms += 1
+      let remaining = (ongoing_timers[0]-time_ms)/100
+      console.log(remaining)
+      document.getElementById("holder").innerHTML = "time until alarm: " +remaining
+      for (let i = 0; i < ongoing_timers.length; i++) {
+            
+            if (time_ms > ongoing_timers[i] && time_ms < ongoing_timers[i]+300){
+                  audio.play();
+                  document.write("TIMER WENT OFFF!!!!!")
+                  console.log("Equal!")
+            }
+      }
+},1)
+
+
+
+
+
+</script>
+</html>
