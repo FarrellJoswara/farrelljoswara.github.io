@@ -22,16 +22,14 @@
       file_location.pop()
       file_location = file_location[0].split("y")
       
-      console.log(file_location)
-      
       day = file_location[1]
-      console.log(day)
+
       day = Number(day)  
       let current_date = new Date(2024,0,26) 
       current_date.setDate(current_date.getDate()+Number(day)-1)
-      console.log(current_date)
+
       document.getElementById("download_code").href = "day"+day+".html"
-      let string_date = "Day " + day + " (" + current_date.getMonth()+1 + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
       document.getElementById("day_title").innerHTML=  string_date
       document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
 </script>

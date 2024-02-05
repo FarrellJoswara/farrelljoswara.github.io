@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Random Quote Generator</h2>
+<p id="quote"></p>
+<input type="button" id="submit" onclick='buttonpress()' value="Generate Random Quote">
+
+<h3>Progression/Thoughts</h3>
+<p>This genuinely might be my laziest day <br>
+I copy and pasted the quotes online, and the only hard part was putting an 8 in front of all the quotes so I could split them <br>
+Then I copy and pasted my random function and called it done, and it worked first try lol <br>
+I've been playing minecraft and so ive been lazy. gotta step it up honesty. Its 1:30 AM rn lol <br>
+rn I'm manually typing these progressions and manually typing "br" so ill make a thing that auto enters lines at the periods hopefuly tomorrow we'll see
+
+
+</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+
+</body>
+<script>
+      let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      let quotes = `8If you want to achieve greatness stop asking for permission. ~Anonymous
+8Things work out best for those who make the best of how things work out. ~John Wooden
+8To live a creative life, we must lose our fear of being wrong. ~Anonymous
+8If you are not willing to risk the usual you will have to settle for the ordinary. ~Jim Rohn
+8Trust because you are willing to accept the risk, not because it's safe or certain. ~Anonymous
+8Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success. ~Swami Vivekananda
+8All our dreams can come true if we have the courage to pursue them. ~Walt Disney
+8Good things come to people who wait, but better things come to those who go out and get them. ~Anonymous
+8If you do what you always did, you will get what you always got. ~Anonymous
+8Success is walking from failure to failure with no loss of enthusiasm. ~Winston Churchill
+8Just when the caterpillar thought the world was ending, he turned into a butterfly. ~Proverb
+8Successful entrepreneurs are givers and not takers of positive energy. ~Anonymous
+8Whenever you see a successful person you only see the public glories, never the private sacrifices to reach them. ~Vaibhav Shah
+8Opportunities don't happen, you create them. ~Chris Grosser
+8Try not to become a person of success, but rather try to become a person of value. ~Albert Einstein
+8Great minds discuss ideas; average minds discuss events; small minds discuss people. ~Eleanor Roosevelt
+8I have not failed. I've just found 10,000 ways that won't work. ~Thomas A. Edison
+8If you don't value your time, neither will others. Stop giving away your time and talents- start charging for it. ~Kim Garst
+8A successful man is one who can lay a firm foundation with the bricks others have thrown at him. ~David Brinkley
+8No one can make you feel inferior without your consent. ~Eleanor Roosevelt
+8The whole secret of a successful life is to find out what is one's destiny to do, and then do it. ~Henry Ford
+8If you're going through hell keep going. ~Winston Churchill
+8The ones who are crazy enough to think they can change the world, are the ones that do. ~Anonymous
+8Don't raise your voice, improve your argument. ~Anonymous
+8What seems to us as bitter trials are often blessings in disguise.~ Oscar Wilde
+8The meaning of life is to find your gift. The purpose of life is to give it away. ~Anonymous
+8The distance between insanity and genius is measured only by success. ~Bruce Feirstein
+8When you stop chasing the wrong things you give the right things a chance to catch you. ~Lolly Daskal
+8Don't be afraid to give up the good to go for the great. ~John D. Rockefeller
+8No masterpiece was ever created by a lazy artist.~ Anonymous
+8Happiness is a butterfly, which when pursued, is always beyond your grasp, but which, if you will sit down quietly, may alight upon you. ~Nathaniel Hawthorne
+8If you can't explain it simply, you don't understand it well enough. ~Albert Einstein
+8Blessed are those who can give without remembering and take without forgetting. ~Anonymous
+8Do one thing every day that scares you. ~Anonymous
+8What's the point of being alive if you don't at least try to do something remarkable. ~Anonymous
+8Life is not about finding yourself. Life is about creating yourself. ~Lolly Daskal
+8Nothing in the world is more common than unsuccessful people with talent. ~Anonymous
+8Knowledge is being aware of what you can do. Wisdom is knowing when not to do it. ~Anonymous
+8Your problem isn't the problem. Your reaction is the problem. ~Anonymous
+8You can do anything, but not everything. ~Anonymous
+8Innovation distinguishes between a leader and a follower. ~Steve Jobs
+8There are two types of people who will tell you that you cannot make a difference in this world: those who are afraid to try and those who are afraid you will succeed. ~Ray Goforth
+8Thinking should become your capital asset, no matter whatever ups and downs you come across in your life. ~Dr. APJ Kalam
+8I find that the harder I work, the more luck I seem to have. ~Thomas Jefferson
+8The starting point of all achievement is desire. ~Napolean Hill
+8Success is the sum of small efforts, repeated day-in and day-out. ~Robert Collier
+8If you want to achieve excellence, you can get there today. As of this second, quit doing less-than-excellent work. ~Thomas J. Watson
+8All progress takes place outside the comfort zone. ~Michael John Bobak
+8You may only succeed if you desire succeeding; you may only fail if you do not mind failing. ~Philippos
+8Courage is resistance to fear, mastery of fear - not absense of fear. ~Mark Twain
+8Only put off until tomorrow what you are willing to die having left undone. ~Pablo Picasso
+8People often say that motivation doesn't last. Well, neither does bathing - that's why we recommend it daily. ~Zig Ziglar
+8We become what we think about most of the time, and that's the strangest secret. ~Earl Nightingale
+8The only place where success comes before work is in the dictionary. ~Vidal Sassoon
+8The best reason to start an organization is to make meaning; to create a product or service to make the world a better place. ~Guy Kawasaki
+8I find that when you have a real interest in life and a curious life, that sleep is not the most important thing. ~Martha Stewart
+8It's not what you look at that matters, it's what you see. ~Anonymous
+8The road to success and the road to failure are almost exactly the same. ~Colin R. Davis
+8The function of leadership is to produce more leaders, not more followers. ~Ralph Nader
+8Success is liking yourself, liking what you do, and liking how you do it. ~Maya Angelou
+8As we look ahead into the next century, leaders will be those who empower others. ~Bill Gates
+8A real entrepreneur is somebody who has no safety net underneath them. ~Henry Kravis
+8The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself. ~Mark Caine
+8People who succeed have momentum. The more they succeed, the more they want to succeed, and the more they find a way to succeed. Similarly, when someone is failing, the tendency is to get on a downward spiral that can even become a self-fulfilling prophecy. ~Tony Robbins
+8When I dare to be powerful - to use my strength in the service of my vision, then it becomes less and less important whether I am afraid. ~Audre Lorde
+8Whenever you find yourself on the side of the majority, it is time to pause and reflect. ~Mark Twain
+8The successful warrior is the average man, with laser-like focus. ~Bruce Lee
+8Take up one idea. Make that one idea your life -- think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success. ~Swami Vivekananda
+8Develop success from failures. Discouragement and failure are two of the surest stepping stones to success. ~Dale Carnegie
+8If you don't design your own life plan, chances are you'll fall into someone else's plan. And guess what they have planned for you? Not much. ~ Jim Rohn
+8If you genuinely want something, don't wait for it -- teach yourself to be impatient. ~Gurbaksh Chahal
+8Don't let the fear of losing be greater than the excitement of winning. ~Robert Kiyosaki
+8If you want to make a permanent change, stop focusing on the size of your problems and start focusing on the size of you! ~T. Harv Eker
+8You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something - your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life. ~Steve Jobs
+8Successful people do what unsuccessful people are not willing to do. Don't wish it were easier, wish you were better. ~Jim Rohn
+8The number one reason people fail in life is because they listen to their friends, family, and neighbors. ~Napoleon Hill
+8The reason most people never reach their goals is that they don't define them, or ever seriously consider them as believable or achievable. Winners can tell you where they are going, what they plan to do along the way, and who will be sharing the adventure with them. ~Denis Watiley
+8In my experience, there is only one motivation, and that is desire. No reasons or principle contain it or stand against it. ~Jane Smiley
+8Success does not consist in never making mistakes but in never making the same one a second time. ~George Bernard Shaw
+8I don't want to get to the end of my life and find that I lived just the length of it. I want to have lived the width of it as well. ~Diane Ackerman
+8You must expect great things of yourself before you can do them. ~Michael Jordan
+8Motivation is what gets you started. Habit is what keeps you going. ~Jim Ryun
+8People rarely succeed unless they have fun in what they are doing. ~Dale Carnegie
+8There is no chance, no destiny, no fate, that can hinder or control the firm resolve of a determined soul. ~Ella Wheeler Wilcox
+8Our greatest fear should not be of failure but of succeeding at things in life that don't really matter. ~Francis Chan
+8You've got to get up every morning with determination if you're going to go to bed with satisfaction. ~George Lorimer
+8To be successful you must accept all challenges that come your way. You can't just accept the ones you like. ~Mike Gafka
+8Success is...knowing your purpose in life, growing to reach your maximum potential, and sowing seeds that benefit others. ~ John C.Maxwell
+8Be miserable. Or motivate yourself. Whatever has to be done, it's always your choice. ~Wayne Dyer
+8To accomplish great things, we must not only act, but also dream, not only plan, but also believe.~ Anatole France
+8Most of the important things in the world have been accomplished by people who have kept on trying when there seemed to be no help at all. ~Dale Carnegie
+8You measure the size of the accomplishment by the obstacles you had to overcome to reach your goals. ~Booker T. Washington
+8Real difficulties can be overcome; it is only the imaginary ones that are unconquerable. ~Theodore N. Vail
+8It is better to fail in originality than to succeed in imitation. ~Herman Melville
+8Fortune sides with him who dares. ~Virgil
+8Little minds are tamed and subdued by misfortune; but great minds rise above it. ~Washington Irving
+8Failure is the condiment that gives success its flavor. ~Truman Capote
+8Don't let what you cannot do interfere with what you can do. ~John R. Wooden
+8You may have to fight a battle more than once to win it. ~Margaret Thatcher`
+    quotes = quotes.split("8")
+
+    function getRndInteger(min, max) {
+
+        return  Math.floor(Math.random() * (max - min)) + min;}
+
+      console.log(file_location)
+      
+    function buttonpress(){
+        let num = getRndInteger(0,quotes.length)
+        document.getElementById("quote").innerHTML=quotes[num]
+        delete quotes[num]
+    }
+
+
+      day = file_location[1]
+      console.log(day)
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+      console.log(current_date)
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+</script>
+</html>
