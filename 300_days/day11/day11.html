@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Stopwatch</h2>
+<p id="elapsed"></p>
+<input type="button" id="start" onclick='starttimer(self)' value="Start counting">
+<input type="button" id="restart" onclick='restart(self)' value="Restart counter"><br>
+<h3>Progression/Thoughts</h3>
+<p>I actually really liked this day, I made it last minute though.<br>
+it was super confusing with all the dates i used but it worked out in the end<br>
+pls look at the javascript im super proud of the simple thing <br>
+actually its not so simple, I have too many unecessary variables <br>
+anyways im addicted to minecraft still, have been playing with friends and i love making automation <br>
+Yeah uh thats all for today, hopefuly tomorrows is easy</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+    let starting_time = new Date()
+    let passed_time = 0
+    let status = false
+    let paused_time = (new Date).getTime()  
+    let resume_time = (new Date).getTime()
+
+      let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      
+      day = file_location[1]
+
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+
+
+    function starttimer(){
+        if (status == false){
+            status = true
+            document.getElementById("start").value = "Stop counting"
+            resume_time = (new Date).getTime()
+            console.log(resume_time)
+            
+        } else{
+            status = false
+            document.getElementById("start").value = "Start counting"
+            paused_time = (new Date).getTime()
+            console.log(paused_time)
+        }
+        
+        
+    }
+    function restart(){
+            status = false
+            document.getElementById("start").value = "Start counting"
+            starting_time = new Date()
+            passed_time = 0
+            status = false
+            paused_time = (new Date).getTime()  
+            resume_time = (new Date).getTime()
+    }
+
+
+
+    setInterval(function(){
+
+        if (status == true){
+
+            passed_time = ((new Date).getTime()-starting_time.getTime()+resume_time-paused_time)/1000
+        }  
+        document.getElementById("elapsed").innerHTML = passed_time
+
+
+        
+    },1)
+
+
+
+</script>
+</html>
