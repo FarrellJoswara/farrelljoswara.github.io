@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body> 
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Drawing App</h2>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid grey;"></canvas>
+<br><br><br><br>radius
+
+<input type="range" min="1" max="20" value="1" class="slider" id="rads">
+<input id="clear" value = "reset" type = "button" onclick="wipe()">
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Progression/Thoughts</h3>
+<p>3:33 AM rn. Geniunely adifficult day, and i didnt even add that many features <br>
+should have added colours and stuff, but getting the mouse position was hard for some reason and I don't really know <br>
+all the events and stuff and how to have something constantly running besides using the setInterval. but still overall its alr<br>
+when u draw it kinda is choppy because of the interval delay... idk how to fix <br>
+ps. i was playing minecraft again today
+</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+    let file_location = location.pathname.split("/")
+    file_location = file_location[file_location.length-1].split(".")
+    file_location.pop()
+    file_location = file_location[0].split("y")
+      
+    day = file_location[1]
+
+    day = Number(day)  
+    let current_date = new Date(2024,0,26) 
+    current_date.setDate(current_date.getDate()+Number(day)-1)
+
+    document.getElementById("download_code").href = "day"+day+".html"
+    let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+    document.getElementById("day_title").innerHTML=  string_date
+    document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+
+
+    let x = 0
+    let y = 0
+    let holding = false
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    let radius = document.getElementById("rads").value
+
+
+    function wipe(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        console.log("cleared!")
+    }
+
+    document.addEventListener('mousedown', function() {
+      holding = true;
+
+      
+    })
+    document.addEventListener('mouseup', function() {
+      holding = false;
+        
+    })
+
+    document.addEventListener('mousemove', function() {
+
+      x = event.clientX-radius
+      y = event.clientY-canvas.offsetTop
+    })
+
+    setInterval(function(){
+        if (holding == true){
+            radius = document.getElementById("rads").value
+            console.log(x, y)
+            
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2*Math.PI);}
+            ctx.fill();
+    
+    },1)
+</script>
+</html>
