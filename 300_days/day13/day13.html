@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Rock Paper Scissors</h2>
+
+<p id="status"></p>
+<input id="rock" value = "rock" type = "button" onclick="choice(1)">
+<input id="paper" value = "paper" type = "button" onclick="choice(2)">
+<input id="scissors" value = "scissors" type = "button" onclick="choice(3)">
+
+
+
+<h3>Progression/Thoughts</h3>
+<p>I basicially made a glorified random number generator <br>
+I got confused with all the break statements, and it wasn't working because the randomize wasn't working and also i didnt add in break<br>
+Its been a long day, I had an exam today <br>
+Ngl tomorrow I am going to be even more busy so we'll see</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+      let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      
+      day = file_location[1]
+
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+
+
+    let status = document.getElementById("status")
+    
+    
+
+    function choice(decision){
+        let win = ""
+        let lose = ""
+        let draw = ""
+        let randomizer = getRndInteger(1,4)
+        console.log(randomizer)
+        
+        switch(decision){
+            case 1:
+                win = "scissors"
+                lose = "paper"
+                draw = "rock"
+
+                break;
+            case 2:
+                win = "rock"
+                lose = "scissors"
+                draw = "paper"
+
+                break;
+            case 3:
+                win = "paper"
+                lose = "rock"
+                draw = "scissors"
+
+                break;
+        }
+
+        switch (randomizer){
+            case 1:
+                status.innerHTML = "you win!, the cpu chose " + win
+                console.log("win")
+                break;
+
+            case 2:
+                status.innerHTML = "you lose!, the cpu chose " + lose
+                console.log("L")
+                break;
+
+            case 3:
+                status.innerHTML = "you drew!, the cpu chose " + draw
+                console.log("D")
+                break;
+
+
+
+        } 
+      }
+
+    function getRndInteger(min, max) {
+        return  Math.floor(Math.random() * (max - min)) + min;
+    }
+</script>
+</html>
