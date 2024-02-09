@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                <style>
+
+
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 8px;
+  cursor: pointer;
+}
+                </style>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Tic Tac Toe</h2>
+
+
+
+
+<input id=1 value = " " type = "button" onclick="choice(1)"class="button">
+<input id=2 value = " " type = "button" onclick="choice(2)"class="button">
+<input id=3 value = " " type = "button" onclick="choice(3)"class="button"><br>
+<input id=4 value = " " type = "button" onclick="choice(4)"class="button">
+<input id=5 value = " " type = "button" onclick="choice(5)"class="button">
+<input id=6 value = " " type = "button" onclick="choice(6)"class="button"><br>
+<input id=7 value = " " type = "button" onclick="choice(7)"class="button">
+<input id=8 value = " " type = "button" onclick="choice(8)"class="button">
+<input id=9 value = " " type = "button" onclick="choice(9)"class="button">
+
+<h3>Progression/Thoughts</h3>
+<p>I failed this day <br> 
+Its also 6am so.... <br>
+I will continue this eventually, because i can do this </p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+
+
+</body>
+<script>
+    let row1 =["","",""]
+    let row2 =["","",""]
+    let row3 =["","",""]
+    let board = [row1,row2,row3]
+    let turn = "x"
+      let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      
+      day = file_location[1]
+
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+
+
+    function choice(decision){
+        pressed = document.getElementById(decision)
+        
+
+        if (pressed.value == " "){
+            pressed.value = turn
+            board[decision-1] = turn
+            if (turn == "x"){
+                turn = "o"
+            }else{
+                turn = "x"
+        }
+        }
+        
+
+        
+
+        console.log(board)
+    }
+    function checkforwin(){
+        for (i in length(board)){
+            for (j in lengh(row1)){
+                if (board[i][j] !== "" && (board[i][j] == board[i][j+1]) || (board[i][j] == board[i][j-1])){
+                    if (j-1<!0 && j+1>!8){
+                        for (var p =0; p < 5; p++){
+                            //brain boomed
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+</script>
+</html>
