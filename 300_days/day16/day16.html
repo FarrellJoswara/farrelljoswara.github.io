@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Flashcard Quiz App</h2>
+<p>Flashcard <br>
+- Create cards with questions and answers (front/back)<br>
+- Buttons to cycle between different cards <br>
+- Search for card number?<br>
+- Delete Cards <br><br>
+</p>Front Side<input id="front"><br>
+Back Side<input id="back"><br>
+<input type="button" value="Create Card" onclick=createCard()>
+
+<br>
+<br>
+<p id="side">Front</p>
+<br>
+<p id="display"></p>
+<input type="button" value="&lt;" onclick="changeCard('left')">
+<input type="button" value=&gt; onclick='changeCard("right")'>
+<input type="button" value="flip" onclick="flip()">
+<input type="button" value="delete" onclick="del()">
+<p id="card#">0</p>
+
+<h3>Progression/Thoughts</h3>
+<p>the code for this day is so incredibly messy, and the html formatting is so bad...<br>
+Coding this wasn't too bad, it was confusing alittle bit because i have terrbible var naming skills but besides that not too bad. <br>
+I missed yesterday, idk waht i should do ab it, maybe come back to it in the future once i finish the challenge. <br>
+I read something that deletig specific elements from an array is bad for performance and instead you should remake the whole thing?<br>
+Idk why, but i found that when i was trying to create the delete system, but I don't know if i can or should delete specific array elements so I will leave it
+<br> One of these days I gotta focus on css fr, also its 2:01 AM so peace out</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+    function formating_dates(){
+        let file_location = location.pathname.split("/")
+      file_location = file_location[file_location.length-1].split(".")
+      file_location.pop()
+      file_location = file_location[0].split("y")
+      
+      day = file_location[1]
+
+      day = Number(day)  
+      let current_date = new Date(2024,0,26) 
+      current_date.setDate(current_date.getDate()+Number(day)-1)
+
+      document.getElementById("download_code").href = "day"+day+".html"
+      let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+      document.getElementById("day_title").innerHTML=  string_date
+      document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+    }
+    formating_dates()
+    let state = true
+    front_cards = []
+    back_cards = []
+    displayed_card = 0
+    let output = document.getElementById("display")
+    let count = document.getElementById("card#")
+    
+    function display_specific_card(card){
+        if(state){
+            output.innerHTML = front_cards[card-1]
+        }else{
+            output.innerHTML = back_cards[card-1]
+        }
+        display_card = card-1
+        count.innerHTML = card
+    }
+    
+    function createCard(){
+        front_cards.push(document.getElementById('front').value)
+        back_cards.push(document.getElementById('back').value) 
+        display_specific_card(front_cards.length)
+    }
+    
+    function changeCard(direction){
+        if (front_cards.length != 0){
+        state = true
+            if (direction == 'left'){
+                if (displayed_card-1 <= -1){
+                    displayed_card = front_cards.length-1
+                }else{
+                    displayed_card = displayed_card - 1
+                }
+            }else{
+                if (displayed_card+1 >= front_cards.length){
+                    displayed_card = 0
+                }else{
+                    displayed_card = displayed_card + 1 
+                }
+        }
+            if(state){
+                output.innerHTML = front_cards[displayed_card]
+            }else{
+                output.innerHTML = back_cards[displayed_card]
+            }
+            
+            count.innerHTML = displayed_card + 1 
+        }
+        
+        
+    }
+    
+    function flip(){
+        if(state){
+            state = false
+            output.innerHTML = back_cards[displayed_card]
+            
+        }else{
+            state = true
+            output.innerHTML = front_cards[displayed_card]
+        }
+    }
+    function del(i){dispa
+
+    }
+    
+    setInterval(function(){
+        if (state){
+            document.getElementById('side').innerHTML="Front"
+        }else{
+            document.getElementById('side').innerHTML="Back"
+        }
+
+
+
+    },1)
+</script>
+</html>
