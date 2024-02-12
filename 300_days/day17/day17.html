@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Memory Game</h2>
+
+
+<input type="button" onclick="start()" value="start" id="startbutton">
+<p id="remember"></p>
+<input id="user_input">
+<input type="button" onclick="submit(document.getElementById('user_input').value)" value="submit" id="submit">
+<p id="high">high score: 0</p>
+
+
+<h3>Progression/Thoughts</h3>
+<p>very cool day, simple but it works well<br>
+its 3 am. im sleepig now. chiefs won today wooo <br>
+i found the style.visibility command, it is very cool. <br>
+i was gonna use arrays for this, instead i just concatted the ltters to the end of a string</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+    let answer = ""
+    let high_score = 0
+      function website_date(){
+            let file_location = location.pathname.split("/")
+            file_location = file_location[file_location.length-1].split(".")
+            file_location.pop()
+            file_location = file_location[0].split("y")
+            
+            day = file_location[1]
+
+            day = Number(day)  
+            let current_date = new Date(2024,0,26) 
+            current_date.setDate(current_date.getDate()+Number(day)-1)
+
+            document.getElementById("download_code").href = "day"+day+".html"
+            let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+            document.getElementById("day_title").innerHTML=  string_date
+            document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+      }
+      function sleep(time) { 
+    return new Promise((resolve) => setTimeout(resolve, time)); 
+    } 
+      function start(){
+        document.getElementById("startbutton").style.visibility = 'hidden';
+        document.getElementById("remember").style.visibility = 'visible';
+        document.getElementById("user_input").style.visibility = 'visible';
+        document.getElementById("submit").style.visibility = 'visible';
+        game()
+      }
+
+
+      async function game(){
+        answer += getRndInteger(0,10);
+        document.getElementById("submit").style.visibility = 'hidden';
+        document.getElementById("remember").innerHTML = answer
+        await sleep((1+.2*answer.length)*1000)
+        document.getElementById("remember").innerHTML = ""
+        document.getElementById("submit").style.visibility = 'visible';
+
+      }
+
+      function getRndInteger(min, max) {
+        return  Math.floor(Math.random() * (max - min)) + min;
+    }
+      
+    async function submit(){
+        let input = document.getElementById("user_input").value
+        document.getElementById("user_input").value = ""
+        if (answer == input){
+            game()
+        }else{
+            document.getElementById("remember").innerHTML = "wrong! you lose! the answer was " + answer
+            document.getElementById("user_input").style.visibility = 'hidden';
+            document.getElementById("submit").style.visibility = 'hidden';
+            await sleep(2500)
+            document.getElementById("remember").innerHTML = "score: " + (answer.length-1)
+            await sleep(2500)
+            document.getElementById("remember").innerHTML = ""
+            
+            document.getElementById("startbutton").style.visibility = 'visible';
+
+            document.getElementById("user_input").value = ""
+            document.getElementById("submit").style.visibility = 'hidden';
+
+            if (high_score < answer.length-1){
+                high_score = answer.length-1
+                
+            }
+            answer = ""
+            document.getElementById("high").innerHTML="high score: " + high_score
+        }
+      }
+      
+      document.getElementById("remember").style.visibility = 'hidden';
+      document.getElementById("user_input").style.visibility = 'hidden';
+      document.getElementById("submit").style.visibility = 'hidden';
+      website_date()
+</script>
+</html>
