@@ -30,15 +30,25 @@
 <h1>Farrell's Website</h1>
 <h2>Welcome to my epic website gamers</h2>
 <p>I will be using this to do cool stuff but really I just wanna practice programming and maybe make this into a portfolio or something</p>
-<img src="photos/funny.jpg " alt="photo w the fam"> 
-<p id="demo">Cool button changes stuff</p>
+<p id="currentday"></p>
+<img src="photos/funny.jpg " alt="photo w the fam">
+
+
+<!--<p id="demo">Cool button changes stuff</p>
 <button type="button" onclick='myFunction()'>Try it</button>
 <button type="button" onclick='document.getElementById("demo").innerHTML = "what the burger!!"'>Boring!</button>
 <button type="button" onclick="document.getElementById('demo').style.display='none'">Hide</button>
-<button type="button" onclick="document.getElementById('demo').style.display='block'">Show</button>
+<button type="button" onclick="document.getElementById('demo').style.display='block'">Show</button> -->
 
 
 
 </body>
+<script>
+      function website_date(){
+            let current_date = new Date(Math.abs(new Date() - new Date(2024,0,26))).getDate();
+            document.getElementById("currentday").innerHTML = "Link to current day! " + "<a href='./300_days/day" + current_date +".html'>Day " + current_date + "</a>"
+      }
+      website_date()
+</script>
 </html>
 
