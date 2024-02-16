@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+      
+            <head>
+                  <link rel="stylesheet" href="/css/test.css">
+            </head>
+            
+<body>
+
+
+<title id="day_title">DAY # (#/##/24)</title>
+<h1 id="day_heading">DAY # (#/##/24)</h1>
+<h2>Project</h2>
+<h3>Progression/Thoughts</h3>
+<p>insert progress here</p>
+<a href="day#.html" id="download_code" download>Code!</a>
+
+</body>
+<script>
+      function website_date(){
+            let file_location = location.pathname.split("/")
+            file_location = file_location[file_location.length-1].split(".")
+            file_location.pop()
+            file_location = file_location[0].split("y")
+            
+            day = file_location[1]
+
+            day = Number(day)  
+            let current_date = new Date(2024,0,26) 
+            current_date.setDate(current_date.getDate()+Number(day)-1)
+
+            document.getElementById("download_code").href = "day"+day+".html"
+            let string_date = "Day " + day + " (" + (Number(current_date.getMonth())+1) + "/" + current_date.getDate() + "/" + current_date.getFullYear() +")"
+            document.getElementById("day_title").innerHTML=  string_date
+            document.getElementById("day_heading").innerHTML = document.getElementById("day_title").innerHTML
+      }
+      website_date()
+</script>
+</html>
